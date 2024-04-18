@@ -1,29 +1,42 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-
   <div class="container-fluid">
-
+    <a class="navbar-brand" href="#">
+      <span class="navbar rounded" style="background-color: #2c5104;">WeTalk</span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mx-auto"> <!-- Center the links -->
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <% if (locals.user) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/blog/add-new">Add Blog</a>
+          <a class="nav-link active" aria-current="page" href="/">Blog</a>
         </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-            Welcome<%=user.fullName %>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/contact">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto"> <!-- Align user section to the right -->
+        <% if (locals.user) { %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/blog/add-new">AddBlog</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link active" href="/user/logout">Logout</a>
+          </li>
+        <li class="nav-item">
+          <div class="d-flex flex-column align-items-center">
+            <img src="<%= locals.user.profileImageURL %>" width="40px" />
+            <span class="text-white"><%= locals.user.fullName %></span>
+           
+          </div>
         </li>
         <% } else {%>
         <li class="nav-item">
@@ -34,23 +47,7 @@
         </li>
         <% } %>
       </ul>
-
-
     </div>
-
-
-
-
-    <!-- <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form> -->
-
-    <a class="navbar-brand" href="#">
-      <span class="navbar rounded" style="background-color: #2c5104;">WeTalk</span></a>
-
-
-  </div>
   </div>
 </nav>
 

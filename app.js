@@ -6,9 +6,11 @@ const mongoose = require("mongoose");
 const cookiePaser = require("cookie-parser");
 
 const Blog = require("./models/blog");
-
+const commentRoutes=require("./routes/comment")
 const userRoute = require("./routes/user");
 const blogRoute = require("./routes/blog");
+
+
 
 
 
@@ -17,13 +19,18 @@ const {
 } = require("./middlewares/authentication");
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 1000;
 
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 
 mongoose
   .connect(process.env.MONGO_URL)
-  .then((e) => console.log("MongoDB Connected"));
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
@@ -33,15 +40,30 @@ app.use(cookiePaser());
 app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve("./public")));
 
+
+
+
 app.get("/", async (req, res) => {
   const allBlogs = await Blog.find({});
   res.render("home", {
     user: req.user,
     blogs: allBlogs,
   });
+  
 });
 
+
+app.use("/comments", commentRoutes);
 app.use("/user", userRoute);
+app.use(express.static('public', {
+  // Set the MIME type for JavaScript files
+  setHeaders: (res, path, stat) => {
+      if (path.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+      }
+  }
+}));
+
 app.use("/blog", blogRoute);
 
 app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));

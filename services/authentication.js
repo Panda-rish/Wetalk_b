@@ -6,6 +6,7 @@ function createTokenForUser(user) {
   const payload = {
     _id: user._id,
     email: user.email,
+    fullName:user.fullName,
     profileImageURL: user.profileImageURL,
     role: user.role,
   };
@@ -14,7 +15,7 @@ function createTokenForUser(user) {
 }
 
 function validateToken(token) {
-  const payload = JWT.verify(token, secret);
+  const payload = JWT.verify(token, secret, {expiresIn: '4h'});
   return payload;
 }
 

@@ -7,6 +7,7 @@ const userSchema = new Schema(
     fullName: {
       type: String,
       required: true,
+      
     },
     email: {
       type: String,
@@ -53,8 +54,9 @@ userSchema.static(
   "matchPasswordAndGenerateToken",
   async function (email, password) {
     const user = await this.findOne({ email });
+    
     if (!user) throw new Error("User not found!");
-
+    
     const salt = user.salt;
     const hashedPassword = user.password;
 
