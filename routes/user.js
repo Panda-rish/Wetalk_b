@@ -3,9 +3,7 @@ const User = require("../models/user");
 
 const router = Router();
 
-router.get("/contact", (req, res) => {
-  return res.render("contact");
-});
+
 
 
 router.get("/signin", (req, res) => {

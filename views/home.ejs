@@ -4,16 +4,14 @@
     <%- include('./partials/head') %>
     <title>Homepage</title>
   </head>
-  <body {
-    
-  }>
+  <body>
     <%- include('./partials/nav') %>
 
     <div class="container mt-4">
       <div class="row">
         <% blogs.forEach(blog => { %>
         <div class="col-md-4 mb-4">
-          <div class="card h-100">
+          <div class="card h-60">
             <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="Blog Cover Image" />
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
@@ -21,6 +19,7 @@
             </div>
           </div>
         </div>
+        
         <% }) %>
       </div>
     </div>

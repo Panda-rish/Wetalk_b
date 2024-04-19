@@ -43,6 +43,8 @@ app.use(express.static(path.resolve("./public")));
 
 
 
+
+
 app.get("/", async (req, res) => {
   const allBlogs = await Blog.find({});
   res.render("home", {
@@ -55,14 +57,6 @@ app.get("/", async (req, res) => {
 
 app.use("/comments", commentRoutes);
 app.use("/user", userRoute);
-app.use(express.static('public', {
-  // Set the MIME type for JavaScript files
-  setHeaders: (res, path, stat) => {
-      if (path.endsWith('.js')) {
-          res.setHeader('Content-Type', 'application/javascript');
-      }
-  }
-}));
 
 app.use("/blog", blogRoute);
 

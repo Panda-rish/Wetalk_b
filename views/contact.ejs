@@ -2,128 +2,142 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <%- include('./partials/head') %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
     <style>
 
-      *{
-        margin:0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Sedan", serif;
+        *{
+          margin:0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Sedan", serif;
+          vertical-align: middle;
+        }
+        body {
+        
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        min-height: 100vh;
+        vertical-align: middle;
+
+        background-color: #00100ed6; /* Set background color */
       }
-      body {
-      display:flex;
-      justify-content: center; /* Center content horizontally */
-      align-items: center; /* Center content vertically */
-      min-height: 100vh;
-    
-      background-color: #00100ed6; /* Set background color */
-    }
-    .container{
-     
-      background-color: #e6f3f1d6; /* Set background color */
-      width: 25%;
-      height: min-content;
-      padding: 25px;
-      border-radius: 25px;
-      box-shadow: 0 0 25px #ffffff;
-      filter: brightness(90%);
-      animation: shak 2s linear infinite;
-    }
-    @keyframes shak {
-      0%{
-        transform: translateY(5px);
-      }
-      25%{
-        transform: translateY(0px);
-      }
-      50%{
-        transform: translateY(-5px);
-      }
-      75%{
-        transform: translateY(0px);
-      }
-      100%{
-        transform: translateY(5px);
-      }
-     
-    }
-    .container h1{
-      font-size: 50px;
-      text-transform: capitalize;
-      text-align: center;
-      margin-bottom: 20px;
-      color: rgb(0,0,0);
-    }
-    .container input,textarea{
-      resize: none;
-      width: 100%;
-      padding: 12px 25px;
-      border-radius: 25px;
-      margin-top: 10px;
-      border: 1px solid rgb(126,111,255);
-      outline: none;
-      box-shadow: 0 0 5px rgb(126,111,255);
-      font-size: 15px;
-      font-weight: 600;
-    }
-    button{
-      width: 100%;
-      padding: 10px 20px;
-      border-radius: 25px;
-      margin-top: 10px;
-      border: none;
-      outline: none;
-      box-shadow: 0 0 5px rgb(126,111,255);
-      font-size: 18px;
-      font-weight: 700;
-      box-shadow: 0 0 10px rgb(0,0,0);
-      background-color: rgb(126,111,255);
-    }
-    buttom:hover{
-      background-color:rgb(126,111,255) ;
-      color: rgba(182, 245, 238, 0.288);
-    }
-    @media  screen and(max-width:900px) {
       .container{
+
+        background-color: #e6f3f1d6; /* Set background color */
         width: 40%;
+        height: min-content;
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 0 25px #ffffff;
+        filter: brightness(90%);
+        animation: shak 2s linear infinite;
+        column-gap: 40px;
       }
-    @media  screen and(max-width:700px) {
-      .container{
-        width: 60%;
+      @keyframes shak {
+        0%{
+          transform: translateY(5px);
+        }
+        25%{
+          transform: translateY(0px);
+        }
+        50%{
+          transform: translateY(-5px);
+        }
+        75%{
+          transform: translateY(0px);
+        }
+        100%{
+          transform: translateY(5px);
+        }
+
       }
-    @media  screen and(max-width:450px) {
-      .container{
-        width: 80%;
+      .container h1{
+        font-size: 50px;
+        text-transform: capitalize;
+        text-align: center;
+        margin-bottom: 20px;
+        color: rgb(0,0,0);
+      }
+      .container h2{
+        font-size: 20px;
+        text-transform: capitalize;
+        text-align: center;
+       
+        margin-bottom: 20px;
+        color: rgb(0,0,0);
+      }
+      .container input,textarea{
+        resize: none;
+        width: 100%;
+        padding: 12px 25px;
+        border-radius: 25px;
+        margin-top: 10px;
+        border: 1px solid rgb(126,111,255);
+        outline: none;
+        box-shadow: 0 0 5px rgb(126,111,255);
+        font-size: 15px;
+        font-weight: 600;
+      }
+      button{
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 25px;
+        margin-top: 10px;
+        border: none;
+        outline: none;
+        box-shadow: 0 0 5px rgb(126,111,255);
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 0 10px rgb(0,0,0);
+        background-color: rgb(126,111,255);
+      }
+      buttom:hover{
+        background-color:rgb(126,111,255) ;
+        color: rgba(182, 245, 238, 0.288);
+      }
+      @media  screen and(max-width:900px) {
+        .container{
+          width: 40%;
+        }
+      @media  screen and(max-width:700px) {
+        .container{
+          width: 60%;
+        }
+      @media  screen and(max-width:450px) {
+        .container{
+          width: 80%;
+        }
+
       }
       
-    }
-
     </style>
   </head>
 
-  <body >
+  <body>
+    <%- include('./partials/nav') %>
     <div class="container">
-      
-      <form action="">
-      <h1>Contact</h1>
-      <input type="text" placeholder="Enter fullName" id="name" required />
-      <input type="email" placeholder="Enter email" id="email" required />
-      <input type="text" placeholder="Enter subject" id="subject" required />
-      <textarea
-        name="tesxt"
-        id="message"
-        cols="25"
-        rows="6"
-        placeholder="Enter your problem"
-      ></textarea>
-      <button type="submit" id="submit">Submit</button>
-    </form>
-      </div>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <form>
+        <h1>Contact</h1>
+        <input type="text" placeholder="Enter fullName" id="name" required />
+        <input type="email" placeholder="Enter email" id="email" required />
+        <input type="text" placeholder="Enter subject" id="subject" required />
+        <textarea
+          name="tesxt"
+          id="message"
+          cols="25"
+          rows="6"
+          placeholder="Enter your problem"
+        ></textarea>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+     <br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-      <script src="https://smtpjs.com/v3/smtp.js"></script>
-      <script src="/components/email.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+    <%- include('./partials/footer') %>
   </body>
 </html>
