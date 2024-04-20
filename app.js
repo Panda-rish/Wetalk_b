@@ -17,6 +17,7 @@ const blogRoute = require("./routes/blog");
 const {
   checkForAuthenticationCookie,
 } = require("./middlewares/authentication");
+const { FcAbout } = require("react-icons/fc");
 
 const app = express();
 const PORT = process.env.PORT || 1000;
@@ -45,12 +46,27 @@ app.use(express.static(path.resolve("./public")));
 
 
 
+
 app.get("/", async (req, res) => {
   const allBlogs = await Blog.find({});
   res.render("home", {
     user: req.user,
     blogs: allBlogs,
   });
+  
+});
+app.get("/user/about", async (req, res) => {
+  
+  res.render("about", {
+    user: req.user,
+  })
+  });
+  app.get("/user/contact", async (req, res) => {
+   
+    res.render("contact", {
+      user: req.user,
+      
+    });
   
 });
 
@@ -60,4 +76,4 @@ app.use("/user", userRoute);
 
 app.use("/blog", blogRoute);
 
-app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
+app.listen(PORT, () => console.log(`Server Started at http://localhost:${PORT}`));

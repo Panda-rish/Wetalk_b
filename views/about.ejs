@@ -11,11 +11,12 @@
       background-color: #f3f3f3;
       margin: 0;
       padding: 0;
+      justify-content: center;
     }
 
     .container {
-      
-      max-width: 800px;
+      display: flex;
+      gap: 20px;
       margin: 50px auto;
       padding: 20px;
       background-color: #fff;
@@ -26,6 +27,7 @@
     h1 {
       text-align: center;
       margin-bottom: 20px;
+      text-decoration: underline;
     }
 
     p {
@@ -38,23 +40,30 @@
 <%- include('./partials/nav') %>
 
 <div class="container">
- <div>
-  <h1>About Us</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consectetur risus. Fusce efficitur sit amet elit ac congue. Aliquam erat volutpat. Donec sit amet elit id tortor bibendum aliquet.</p>
-  <p>Nullam auctor, nunc sed scelerisque vestibulum, felis sapien interdum ligula, nec malesuada risus odio in tellus. Suspendisse potenti. Morbi pellentesque, justo eu tempor fermentum, elit ex interdum lorem, at varius purus arcu sed libero.</p>
-</div>
-<div >
- 
+  <div class="container">
+ <img src="/images/log.png" alt="log" height="500" width="550">
+  </div>
+  <div>
+   <h1 >About Us</h1>
+
   
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consectetur risus. Fusce efficitur sit amet elit ac congue. Aliquam erat volutpat. Donec sit amet elit id tortor bibendum aliquet.</p>
-  <p>Nullam auctor, nunc sed scelerisque vestibulum, felis sapien interdum ligula, nec malesuada risus odio in tellus. Suspendisse potenti. Morbi pellentesque, justo eu tempor fermentum, elit ex interdum lorem, at varius purus arcu sed libero.</p>
-</div>
-<div >
  
-  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consectetur risus. Fusce efficitur sit amet elit ac congue. Aliquam erat volutpat. Donec sit amet elit id tortor bibendum aliquet.</p>
-  <p>Nullam auctor, nunc sed scelerisque vestibulum, felis sapien interdum ligula, nec malesuada risus odio in tellus. Suspendisse potenti. Morbi pellentesque, justo eu tempor fermentum, elit ex interdum lorem, at varius purus arcu sed libero.</p>
-</div>
+  <p>
+    Welcome to <font Color="blue">WeTalk</font> , where ideas meet expression, and thoughts find a voice. We believe in the power of storytelling, the beauty of diverse perspectives, and the strength of community. Our platform is not just another blog site; it's a sanctuary for individuals to share their passions, experiences, and reflections with the world.
+
+At [Your Blog Site Name], we understand the profound impact of connecting through shared narratives. Whether you're a seasoned writer, an aspiring poet, or someone with a story waiting to be told, our platform provides the canvas for your creativity to flourish. From personal anecdotes to profound insights, from poetry that moves the soul to articles that provoke thought, our blog site is a tapestry woven with the threads of human experience.
+
+What sets us apart is our commitment to fostering a supportive and inclusive environment. We believe in the power of constructive dialogue and respectful engagement. Our community is a mosaic of voices, each contributing a unique hue to the collective picture. Here, diversity is celebrated, and differences are embraced. We believe that by listening to each other's stories, we cultivate empathy, understanding, and connection.
+
+Behind the scenes, our team is dedicated to providing a seamless and enriching experience for our users. We employ state-of-the-art technologies to ensure a user-friendly interface, allowing you to focus on what matters most: your content. Our intuitive design and robust features empower you to unleash your creativity without constraints.
+
+As we continue to evolve and grow, our vision remains unwavering: to be a beacon of inspiration and a catalyst for meaningful connections. Whether you're here to read, write, or simply explore, we invite you to join us on this journey of self-discovery, expression, and community.
+
+Thank you for being part of the <font Color="blue">WeTalk</font> family. Together, let's build bridges with words, and let our stories illuminate the path ahead.
+
+
+  </p>
+ </div>
 
 </div>
 <%- include('./partials/footer') %>

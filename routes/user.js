@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const User = require("../models/user");
+const {createTokenForUser} = require("../services/authentication") 
 
 const router = Router();
 
@@ -39,27 +40,28 @@ router.get("/logout", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   const { fullName, email, password } = req.body;
-  console.log("/signup :: req.body:: " ,req.body);
-  //  const User = {
-  //   email: email,
-  //   fullName:fullName,
-  //   password: password
-  //   // Add other user properties as needed
-  // };
-  // await User.create({
-  //   fullName: fullName,
-  //   email: email,
-  //   password: password,
-  // });  
   
-  const user= new User({
-    fullName: fullName,
-    email: email,
-    password: password
-  })
+  try {
+    const user = new User({
+      fullName: fullName,
+      email: email,
+      password: password
+    });
 
-  await user.save()
-  return res.redirect("/signin");
+    await user.save();
+
+    // Generate token for the newly signed-up user
+    const token = await createTokenForUser(user);
+
+    // Set token as a cookie
+    return res.cookie("token", token).redirect("/");
+
+  } catch (error) {
+    console.error("Error signing up:", error);
+    return res.render("signup", {
+      error: "An error occurred while signing up. Please try again later.",
+    });
+  }
 });
 
 

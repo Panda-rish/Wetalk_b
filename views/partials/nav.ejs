@@ -1,7 +1,35 @@
+<style>
+  button{
+        width: 95%;
+        padding: 10px 20px;
+        border-radius: 20px;
+        margin-top: 10px;
+        border: none;
+        outline: none;
+        
+        box-shadow: 0 0 5px rgb(126,111,255);
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 0 10px rgb(0,0,0);
+        background-color: rgb(88, 190, 227);
+       
+      }
+      buttom:hover{
+        background-color:rgb(219, 255, 111) ;
+        color: rgba(225, 90, 11, 0.288);
+      }
+      h3 {
+      
+      text-decoration: underline;
+    }
+
+</style>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <span class="navbar rounded" style="background-color: #2c5104;">WeTalk</span>
+    <h2><font color="grey">We</font><font color="yellow">Talk</font></h2>
+    
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto"> <!-- Center the links -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/"><h3 >Home</h3></a>
         </li>
         
         
@@ -33,10 +61,16 @@
         </li>
         <% } else {%>
         <li class="nav-item">
-          <a class="nav-link" href="/user/signup">Create Account</a>
+          <button class="buttom ">
+            <a class="nav-link" href="/user/signup">SignUp</a>
+          </button>
+         
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/user/signin">Signin</a>
+          <button class="buttom">
+            <a class="nav-link" href="/user/signin">Signin</a>
+          </button>
+          
         </li>
         <% } %>
       </ul>
