@@ -20,7 +20,7 @@ const {
 
 
 const app = express();
-const PORT = process.env.PORT || 1000;
+
 
 mongoose.set("strictQuery", true);
 
@@ -73,4 +73,4 @@ app.use("/user", userRoute);
 
 app.use("/blog", blogRoute);
 
-app.listen(PORT, () => console.log(`Server Started at ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server Started at ${PORT}`));
