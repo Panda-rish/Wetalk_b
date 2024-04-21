@@ -37,7 +37,7 @@ connectDB();
 //     throw error
 //   }
 // })
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", true);
 
 // mongoose
 //   .connect(process.env.MONGO_URL)
