@@ -72,5 +72,4 @@ app.use("/comments", commentRoutes);
 app.use("/user", userRoute);
 
 app.use("/blog", blogRoute);
-
-app.listen(process.env.PORT, () => console.log(`Server Started at ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server Started` ));
