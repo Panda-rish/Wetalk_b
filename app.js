@@ -17,7 +17,7 @@ const blogRoute = require("./routes/blog");
 const {
   checkForAuthenticationCookie,
 } = require("./middlewares/authentication");
-const { FcAbout } = require("react-icons/fc");
+
 
 const app = express();
 const PORT = process.env.PORT || 1000;
@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 1000;
 mongoose.set("strictQuery", true);
 
 mongoose
-  .connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -42,11 +42,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookiePaser());
 app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve("./public")));
-
-
-
-
-
 
 
 app.get("/", async (req, res) => {
