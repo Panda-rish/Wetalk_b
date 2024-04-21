@@ -5,47 +5,7 @@
     <%- include('./partials/head') %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
-    <script >
-
-const form=document.querySelector("form");
-const fullname=document.getElementById("name");
-const email=document.getElementById("email");
-const subject=document.getElementById("subject");
-const message=document.getElementById("message");
-
-
-function sendEmail(){
-  try {
-
-  
-const bodyMessage=`Full Nmae : ${fullname.value}<br> Email:${email.value}<br> Subject:${subject.value}<br> Message:${message.value}`
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "sid.rk85211@gmail.com",
-        Password : "DC33EBAC4F5208F8AAB5C339F06931FAA324",
-        To : email,
-        From : "sid.rk85211@gmail.com",
-        Subject : subject.value,
-        Body : bodyMessage,
-    }).then(
-      (message) => {
-        if(message=="ok"){
-            Swal.fire({
-                title:"succesfully",
-                text:"Message sent successfully",
-                icon:"success"
-              });
-        }
-      }
-    );
-  } catch(error){
-    console.log(error);
-  }
-}
-
-
-
-    </script>
+   
     <style>
 
         *{

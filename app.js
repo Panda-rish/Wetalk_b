@@ -1,37 +1,52 @@
-require("dotenv").config();
+// require("dotenv").config();
+const dotenv=require("dotenv");
 
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const cookiePaser = require("cookie-parser");
-
 const Blog = require("./models/blog");
-const commentRoutes=require("./routes/comment")
+const commentRoutes=require("./routes/comment");
 const userRoute = require("./routes/user");
 const blogRoute = require("./routes/blog");
+const {checkForAuthenticationCookie,} = require("./middlewares/authentication");
+const connectDB=require("./db/index.js")
 
 
 
-
-
-const {
-  checkForAuthenticationCookie,
-} = require("./middlewares/authentication");
-
+dotenv.config({
+  path:'./env'
+})
 
 const app = express();
 
+connectDB();
 
-mongoose.set("strictQuery", true);
+// (async()=>{
+//   try {
+//     await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`)
+//     app.on("error",(error)=>{
+//       console.log("Error:",error);
+//       throw error;
+//     })
+//     app.listen(process.env.PORT,()=>{
+//       console.log(`App on port ${process.env.PORT}`);
+//     })
+//   } catch (error) {
+//     console.error("ERROR:",error)
+//     throw error
+//   }
+// })
+mongoose.set("strictQuery", false);
 
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+// mongoose
+//   .connect(process.env.MONGO_URL)
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
 
 
  
