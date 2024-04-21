@@ -5,12 +5,12 @@
   <title>Signup</title>
   <style>
     body {
-       
-      justify-content: center; 
-      align-items: center; 
-      min-height: 100vh;
-      margin:0;
-      background-color:#f2f5f5;
+      display: flex;
+      flex-direction: column; /* Set flex direction to column */
+      min-height: 80vh;
+     row-gap: 85px;
+      margin: 0;
+      background-color: #f2f5f5;
     }
 
     .navbar-container {
@@ -18,28 +18,39 @@
     }
 
     .body-container {
-      display:flex;
-      position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      justify-content: center; 
-      align-items: center; 
-      background-color:rgb(227, 218, 230); 
-      padding: 4px; 
+      transform: translate(150%, 0%);
+      display: flex;
+      flex-direction: column; /* Set flex direction to column */
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(227, 218, 230);
+      padding: 20px;
       border-radius: 15px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       max-width: 350px;
-      
       width: 100%;
+      flex-grow: 1; /* Allow body-container to grow and fill remaining space */
     }
 
     .form-group {
-      margin-bottom: 1rem; 
+      margin-bottom: 1rem;
     }
 
     .form-control {
-      width: 100%; 
+      width: 100%;
+    }
+
+    .footer-container {
+      margin-top: auto; /* Push the footer to the bottom */
+      background-color: #f2f5f5;
+      
+      text-align: center;
+    }
+
+    .footer-container a {
+      color: #333;
     }
 
   </style>
@@ -51,7 +62,7 @@
   <%- include('./partials/icon') %>
 </div>
 
-<div class="body-container  ">
+<div class="body-container">
   <form action="/user/signin" method="post">
     <div class="form-group">
       <h1><span class="fa fa-sign-in"></span> signin</h1>
@@ -80,7 +91,7 @@
   
     <button type="submit"  class="btn btn-primary mb-6 " >signin</button>
     <br>
-    Dont have an account ? 
+    Don't have an account ? 
     <a class="icon-link" href="/user/signup">
       Signup
     </a>
@@ -88,9 +99,11 @@
   </form>
 </div>
 
+<div class="footer-container">
+  <%- include('./partials/footer') %>
+</div>
+
 <%- include('./partials/scripts') %>
-
-
 
 </body>
 </html>
