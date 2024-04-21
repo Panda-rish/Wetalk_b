@@ -21,7 +21,7 @@ dotenv.config({
 const app = express();
 mongoose.set("strictQuery", true);
 
-connectDB();
+
 
 // (async()=>{
 //   try {
@@ -88,4 +88,12 @@ app.use("/comments", commentRoutes);
 app.use("/user", userRoute);
 
 app.use("/blog", blogRoute);
+ 
+connectDB()
+.then(()=>{
 
+  app.listen(process.env.PORT, ()=>console.log("server is running"));
+}).catch((err)=>{
+   console.error("failed to connect db",err)
+   process.exit(1)
+});
