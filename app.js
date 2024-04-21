@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 1000;
 mongoose.set("strictQuery", true);
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -33,6 +33,8 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
   });
 
+
+ 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
