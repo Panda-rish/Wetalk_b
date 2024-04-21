@@ -76,4 +76,4 @@ app.use("/user", userRoute);
 
 app.use("/blog", blogRoute);
 
-app.listen(PORT, () => console.log(`Server Started at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server Started at ${PORT}`));
