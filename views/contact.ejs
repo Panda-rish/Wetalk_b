@@ -7,130 +7,161 @@
     <title>Contact</title>
    
     <style>
-
-        *{
-          margin:0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: "Sedan", serif;
-         
-          
-        }
-        body {
-        
-        justify-content: space-between;
-        align-items: center;
-        background-color: #00100ed6; /* Set background color */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Sedan", serif;
       }
 
-      .contact{
+      body {
+        display: flex;
+      
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #00100ed6; /* Set background color */
+        margin:0;
+      }
+
+      .navbar-container,
+      .footer-container {
+        width: 100%;
+      }
+
+      .contact-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .contact {
         background-color: #e6f3f1d6; /* Set background color */
         width: 40%;
         padding: 25px;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
         border-radius: 25px;
         box-shadow: 0 0 25px #ffffff;
         filter: brightness(90%);
         display: flex;
         flex-direction: column;
-      }
-      .contact h1{
-        font-size: 2rem;
-        text-transform: capitalize;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+      }
+
+      .contact h1,
+      .contact h2 {
+        text-transform: capitalize;
         margin-bottom: 20px;
         color: rgb(0, 0, 0);
       }
-      .contact h2{
+
+      .contact h1 {
         font-size: 2rem;
-        text-transform: capitalize;
-        text-align: center;
-        margin-bottom: 20px;
-        color: rgb(0, 0, 0);
       }
-      .contact input,textarea{
+
+      .contact h2 {
+        font-size: 2rem;
+      }
+
+      .contact input,
+      .contact textarea {
         resize: none;
         width: 100%;
         padding: 12px 25px;
         border-radius: 25px;
         margin-top: 10px;
-        border: 1px solid rgb(126,111,255);
+        border: 1px solid rgb(126, 111, 255);
         outline: none;
-        box-shadow: 0 0 5px rgb(126,111,255);
+        box-shadow: 0 0 5px rgb(126, 111, 255);
         font-size: 15px;
         font-weight: 600;
       }
-      button{
+
+      button {
         width: 100%;
         padding: 10px 20px;
         border-radius: 25px;
         margin-top: 10px;
         border: none;
         outline: none;
-        box-shadow: 0 0 5px rgb(126,111,255);
+        box-shadow: 0 0 5px rgb(126, 111, 255);
         font-size: 18px;
         font-weight: 700;
-        box-shadow: 0 0 10px rgb(0,0,0);
-        background-color: rgb(126,111,255);
+        background-color: rgb(126, 111, 255);
+        color: #fff;
+        cursor: pointer;
       }
-      buttom:hover{
-        background-color:rgb(126,111,255) ;
-        color: rgba(182, 245, 238, 0.288);
+
+      button:hover {
+        background-color: rgb(110, 95, 245);
       }
-      @media  screen and(max-width:900px) {
-        .contact{
-          width: 60%;
-        }
-      @media  screen and(max-width:700px) {
-        .contact{
-          width: 60%;
-        }
-      @media  screen and(max-width:450px) {
+
+      @media screen and (max-width: 900px) {
         .contact {
-          width: 100%;
+          width: 60%;
         }
+      }
+
+      @media screen and (max-width: 700px) {
+        .contact {
+          width: 80%;
+        }
+      }
+
+      @media screen and (max-width: 450px) {
         .contact h1 {
           font-size: 1.5rem;
         }
+
         .contact h2 {
           font-size: 1rem;
         }
+
         .contact input,
         .contact textarea {
           font-size: 1rem;
         }
+
         button {
           font-size: 1rem;
         }
-
       }
-      
     </style>
   </head>
 
   <body>
-    <%- include('./partials/nav') %>
-    <div class="contact" >
-      <form >
-        <h1>Contact</h1>
-        <input type="text" placeholder="Enter fullName" id="name" required />
-        <input type="email" placeholder="Enter email" id="email" required />
-        <input type="text" placeholder="Enter subject" id="subject" required />
-        <textarea
-          name="tesxt"
-          id="message"
-          cols="25"
-          rows="6"
-          placeholder="Enter your problem"
-        ></textarea>
-        <button type="submit" onclick="send()"  id="submit">Submit</button>
-      </form>
-     <br>
+    <div class="navbar-container">
+      <%- include('./partials/nav') %>
     </div>
+
+    <div class="contact-container">
+      <div class="contact">
+        <form>
+          <h1>Contact</h1>
+          <input type="text" placeholder="Enter fullName" id="name" required />
+          <input type="email" placeholder="Enter email" id="email" required />
+          <input type="text" placeholder="Enter subject" id="subject" required />
+          <textarea
+            name="text"
+            id="message"
+            cols="25"
+            rows="6"
+            placeholder="Enter your problem"
+          ></textarea>
+          <button type="submit" onclick="send()" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <%- include('./partials/footer') %>
+    </div>
+
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-  
-    <%- include('./partials/footer') %>
   </body>
-  </html>
+</html>

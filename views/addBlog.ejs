@@ -1,163 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head') %>
-    <title>Add New Blog</title>
+<head>
+  <%- include('./partials/head') %>
+  <title>Add New Blog</title>
 
-    <style>
- *{
-          margin:0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: "Sedan", serif;
-        }
-        body {
-        /* display:; */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        min-height: 100vh;
-        background-color: #00100ed6; /* Set background color */
-      }
-      
-      .container{
-       
-        background-color: #e6f3f1d6;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-        height: min-content;
-        
-       transform: translate(0%, 20%);
-        padding: 25px;
-        border-radius: 25px;
-        box-shadow: 0 0 25px #ffffff;
-        filter: brightness(90%);
-        
-      }
-      @keyframes shak {
-        0%{
-          transform: translateY(5px);
-        }
-        25%{
-          transform: translateY(0px);
-        }
-        50%{
-          transform: translateY(-5px);
-        }
-        75%{
-          transform: translateY(0px);
-        }
-        100%{
-          transform: translateY(5px);
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Sedan", serif;
+    }
 
-      }
-      .container h1{
-        font-size: 50px;
-        text-transform: capitalize;
-        text-align: center;
-        margin-bottom: 20px;
-        color: rgb(0,0,0);
-      }
-      .container h2{
-        font-size: 20px;
-        text-transform: capitalize;
-        text-align: center;
-       
-        margin-bottom: 20px;
-        color: rgb(0,0,0);
-      }
-      .container input,textarea{
-        resize: none;
-        width: 100%;
-        padding: 12px 25px;
-        border-radius: 25px;
-        margin-top: 10px;
-        border: 1px solid rgb(126,111,255);
-        outline: none;
-        box-shadow: 0 0 5px rgb(126,111,255);
-        font-size: 15px;
-        font-weight: 600;
-        overflow-y: auto;
-      }
-      button{
-        width: 100%;
-        padding: 10px 20px;
-        border-radius: 25px;
-        margin-top: 10px;
-        border: none;
-        outline: none;
-        box-shadow: 0 0 5px rgb(126,111,255);
-        font-size: 18px;
-        font-weight: 700;
-        box-shadow: 0 0 10px rgb(0,0,0);
-        background-color: rgb(126,111,255);
-      }
-      buttom:hover{
-        background-color:rgb(126,111,255) ;
-        color: rgba(182, 245, 238, 0.288);
-      }
-      @media  screen and(max-width:900px) {
-        .container{
-          width: 40%;
-        }
-      @media  screen and(max-width:700px) {
-        .container{
-          width: 60%;
-        }
-      @media  screen and(max-width:450px) {
-        .container{
-          width: 80%;
-        }
+    body {
+     
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #00100ed6; /* Set background color */
+    }
 
+    .container {
+      background-color: #e6f3f1d6;
+      width: 30%;
+      max-width: 500px;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px #ffffff;
+      filter: brightness(90%);
+      margin: auto; /* Center horizontally */
+      transform: translateY(20%); /* Center vertically */
+    }
+
+    .container h1 {
+      font-size: 2rem;
+      text-transform: capitalize;
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgb(0, 0, 0);
+    }
+
+    .container input,
+    .container textarea {
+      width: 100%;
+      padding: 12px 25px;
+      border-radius: 25px;
+      margin-top: 10px;
+      border: 1px solid rgb(126, 111, 255);
+      outline: none;
+      box-shadow: 0 0 5px rgb(126, 111, 255);
+      font-size: 15px;
+      font-weight: 600;
+      resize: none;
+    }
+
+    .container textarea {
+      height: 150px; /* Example height for textarea */
+    }
+
+    .container button {
+      width: 100%;
+      padding: 10px 20px;
+      border-radius: 25px;
+      margin-top: 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 5px rgb(126, 111, 255);
+      font-size: 18px;
+      font-weight: 700;
+      background-color: rgb(126, 111, 255);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      background-color: rgb(110, 95, 245);
+    }
+
+    @media screen and (max-width: 900px) {
+      .container {
+        width: 60%;
       }
-      .home{
-        margin: top 25px; ;
-        font-size: 50px;
-        text-transform: capitalize;
-        text-align: center;
-        margin-bottom: 20px;
-        color: rgba(14, 1, 1, 0.819);
+    }
+
+    @media screen and (max-width: 700px) {
+      .container {
+        width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .container {
+        width: 90%;
       }
 
-    </style>
-  </head>
-  <body>
-    <%- include('./partials/nav') %>
-    <div class="box">
-    <div class="container ">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div >
-          <label for="coverImage" class="form-label">Cover Image</label>
-          <input
-            type="file"
-            class="form-control"
-            id="coverImage"
-            name="coverImage"
-            aria-describedby="coverImage"
-          />
-        </div>
-        <div>
-          <label for="title" class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            aria-describedby="title"
-          />
-        </div>
-        <div >
-          <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body"></textarea>
-        </div>
-        <div >
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </form>
-    </div>
+      .container h1 {
+        font-size: 1.5rem;
+      }
+
+      .container input,
+      .container textarea {
+        font-size: 14px;
+      }
+
+      .container button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <form action="/blog" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="coverImage" class="form-label">Cover Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="coverImage"
+          name="coverImage"
+          aria-describedby="coverImage"
+        />
+      </div>
+      <div>
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          aria-describedby="title"
+        />
+      </div>
+      <div>
+        <label for="body">Body</label>
+        <textarea name="body" class="form-control" id="body"></textarea>
+      </div>
+      <div>
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
-    <%- include('./partials/scripts') %>
- 
-  </body>
+  <%- include('./partials/scripts') %>
+</body>
 </html>
