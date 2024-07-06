@@ -1,6 +1,5 @@
-// require("dotenv").config();
-const dotenv=require("dotenv");
 
+const dotenv=require("dotenv");
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -21,36 +20,6 @@ dotenv.config({
 const app = express();
 mongoose.set("strictQuery", true);
 
-
-
-// (async()=>{
-//   try {
-//     await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`)
-//     app.on("error",(error)=>{
-//       console.log("Error:",error);
-//       throw error;
-//     })
-//     app.listen(process.env.PORT,()=>{
-//       console.log(`App on port ${process.env.PORT}`);
-//     })
-//   } catch (error) {
-//     console.error("ERROR:",error)
-//     throw error
-//   }
-// })
-
-
-// mongoose
-//   .connect(process.env.MONGO_URL)
-//   .then(() => {
-//     console.log("Connected to MongoDB");
-//   })
-//   .catch((error) => {
-//     console.error("Error connecting to MongoDB:", error);
-//   });
-
-
- 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
@@ -92,7 +61,8 @@ app.use("/blog", blogRoute);
 connectDB()
 .then(()=>{
 
-  app.listen(process.env.PORT, ()=>console.log("server is running"));
+  app.listen(process.env.PORT, ()=>{
+    console.log(`server is running at http://localhost:${process.env.PORT}`)});
 }).catch((err)=>{
    console.error("failed to connect db",err)
    process.exit(1)

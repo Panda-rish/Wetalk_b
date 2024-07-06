@@ -3,24 +3,39 @@
   <head>
     <%- include('./partials/head') %>
     <title>Homepage</title>
+    <style>
+      .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .card-img-top {
+        object-fit: cover;
+        height: 200px;
+      }
+      .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
-    
 
     <div class="container mt-4">
       <div class="row">
         <% blogs.forEach(blog => { %>
-        <div class="col-md-4 mb-4">
-          <div class="card h-60">
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card h-100">
             <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="Blog Cover Image" />
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
-              <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">View</a>
             </div>
           </div>
         </div>
-        
         <% }) %>
       </div>
     </div>

@@ -11,43 +11,44 @@
         *{
           margin:0;
           padding: 0;
-          
           box-sizing: border-box;
           font-family: "Sedan", serif;
-          vertical-align: middle;
+         
+          
         }
         body {
-          row-gap: 20px;
+        
+        justify-content: space-between;
+        align-items: center;
         background-color: #00100ed6; /* Set background color */
       }
 
       .contact{
-       top: 50%;
-       left: 50%;
-       transform: translate(70%, 1%);
         background-color: #e6f3f1d6; /* Set background color */
         width: 40%;
-        height: min-content;
         padding: 25px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
         border-radius: 25px;
         box-shadow: 0 0 25px #ffffff;
         filter: brightness(90%);
-        column-gap: 40px;
+        display: flex;
+        flex-direction: column;
       }
       .contact h1{
-        font-size: 50px;
+        font-size: 2rem;
         text-transform: capitalize;
         text-align: center;
         margin-bottom: 20px;
-        color: rgb(0,0,0);
+        color: rgb(0, 0, 0);
       }
       .contact h2{
-        font-size: 20px;
+        font-size: 2rem;
         text-transform: capitalize;
         text-align: center;
-       
         margin-bottom: 20px;
-        color: rgb(0,0,0);
+        color: rgb(0, 0, 0);
       }
       .contact input,textarea{
         resize: none;
@@ -80,15 +81,28 @@
       }
       @media  screen and(max-width:900px) {
         .contact{
-          width: 40%;
+          width: 60%;
         }
       @media  screen and(max-width:700px) {
         .contact{
           width: 60%;
         }
       @media  screen and(max-width:450px) {
-        .contact{
-          width: 80%;
+        .contact {
+          width: 100%;
+        }
+        .contact h1 {
+          font-size: 1.5rem;
+        }
+        .contact h2 {
+          font-size: 1rem;
+        }
+        .contact input,
+        .contact textarea {
+          font-size: 1rem;
+        }
+        button {
+          font-size: 1rem;
         }
 
       }
@@ -99,7 +113,7 @@
   <body>
     <%- include('./partials/nav') %>
     <div class="contact" >
-      <form>
+      <form >
         <h1>Contact</h1>
         <input type="text" placeholder="Enter fullName" id="name" required />
         <input type="email" placeholder="Enter email" id="email" required />
@@ -111,14 +125,12 @@
           rows="6"
           placeholder="Enter your problem"
         ></textarea>
-        <button type="submit" onclick="sendEmail()" id="submit">Submit</button>
+        <button type="submit" onclick="send()"  id="submit">Submit</button>
       </form>
      <br>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    
+  
     <%- include('./partials/footer') %>
   </body>
-</html>
+  </html>

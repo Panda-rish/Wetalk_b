@@ -1,13 +1,13 @@
 <style>
   button{
-        width: 95%;
+        width: 100%;
         padding: 10px 20px;
         border-radius: 20px;
         margin-top: 10px;
         border: none;
         outline: none;
         
-        box-shadow: 0 0 5px rgb(126,111,255);
+        box-shadow: 0 0 5px rgb(220, 219, 234);
         font-size: 16px;
         font-weight: 600;
         box-shadow: 0 0 10px rgb(0,0,0);
@@ -22,13 +22,24 @@
       
       text-decoration: underline;
     }
-
+    @media  screen and(max-width:900px) {
+        .buttom{
+          width: 40%;
+        }
+      @media  screen and(max-width:700px) {
+        .buttom{
+          width: 60%;
+        }
+      @media  screen and(max-width:450px) {
+        .buttom{
+          width: 80%;
+        }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-    <h2><font color="grey">We</font><font color="yellow">Talk</font></h2>
+    <h2><font color="grey">We</font><font color="red">Talk</font></h2>
     
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -38,7 +49,13 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto"> <!-- Center the links -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/"><h3 >Home</h3></a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/about">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/contact">Contact</a>
         </li>
         
         
@@ -55,7 +72,7 @@
         <li class="nav-item">
           <div class="d-flex flex-column align-items-center">
             <img src="<%= locals.user.profileImageURL %>" width="40px" />
-            <span class="text-white"><%= locals.user.fullName %></span>
+            <span class="text-black"><%= locals.user.fullName %></span>
            
           </div>
         </li>
